@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
+    ],
+    "@babel/preset-react",
+    [
+      "@babel/preset-typescript",
+      {
+        "isTSX": true,
+        "jsxPragma": "react",
+        "allExtensions": true
+      }
+    ],
+    "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": [
+    [
+      "emotion",
+      {
+        "sourceMap": true
+      }
+    ],
+    "react-hot-loader/babel",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining"
+  ]
+}

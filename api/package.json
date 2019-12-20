@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "router.js",
+  "scripts": {
+    "build": "tsc",
+    "prettier": "prettier --write \"{api,src,.}/**/*.{ts,tsx,js}\"",
+    "psql": "docker-compose up --abort-on-container-exit",
+    "dev": "nodemon server.js",
+    "tsc-watch": "tsc --watch",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1"
+  }
+}

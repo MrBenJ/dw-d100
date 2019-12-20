@@ -1,0 +1,28 @@
+{
+  "name": "dw-d100",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "npm-run-all --sequential clean-*",
+    "clean-api": "rimraf api/build/",
+    "clean-ui": "rimraf web/build",
+    "prettier": "prettier --write \"{api,web,.}/**/*.{ts,tsx,js}\"",
+    "install-deps": "npm-run-all --parallel install-deps-*",
+    "install-deps-root": "yarn",
+    "install-deps-api": "cd api && yarn",
+    "install-deps-ui": "cd web && yarn",
+    "dev": "yarn clean && yarn build-api && npm-run-all --parallel dev-*",
+    "build-api": "cd api && yarn tsc",
+    "dev-api-tsc": "cd api && yarn tsc --watch",
+    "dev-api-psql": "cd api && yarn psql",
+    "dev-api-start": "nodemon api/build/server.js",
+    "dev-ui-start": "cd web && yarn dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
