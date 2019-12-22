@@ -29,6 +29,14 @@ async function getDataForType(type) {
   return data;
 }
 
+router.get('/types', async (req, res) => {
+  const types = await getTypes();
+  
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  return res.status(200).send(JSON.stringify(types));
+});
+
 router.get('/generate/:type', async (req, res) => {
   const { type } = req.params;
   let { seed } = req.query;
@@ -59,7 +67,8 @@ router.get('/generate/:type', async (req, res) => {
   
   // TODO: Implement Seed
   res.setHeader('Content-Type', 'application/json');
-  res.status(200).json(result);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.status(200).send(JSON.stringify(result));
 
 });
 module.exports = router;

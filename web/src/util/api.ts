@@ -6,16 +6,32 @@ export type GeneratedType = {
 };
 
 const Api = {
-  generate: async (type, seed = ''): Promise<GeneratedType> => {
+  getTypes: async (): Promise<string[]> => {
     try {
-      const resp = await fetch(`${endpoint}/generate/${type}${seed}`, {
-        mode: 'no-cors',
+      const resp = await fetch(`${endpoint}/types`, {
+        mode: 'cors',
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json'
         }
       });
-      console.log(resp);
+      const json = await resp.json();
+      console.log(json);
+      return json;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  },
+  generate: async (type, seed = ''): Promise<GeneratedType> => {
+    try {
+      const resp = await fetch(`${endpoint}/generate/${type}${seed}`, {
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        }
+      });
       const json = await resp.json();
       return json;
     } catch (error) {
