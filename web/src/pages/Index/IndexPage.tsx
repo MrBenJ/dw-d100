@@ -93,4 +93,3 @@ const IndexPage: React.FC<IndexPageProps> = () => {
   );
 }
 export default IndexPage;
-
