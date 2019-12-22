@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React, { ReactNode } from 'react';
 
 import style from './FlexContainer.style';
