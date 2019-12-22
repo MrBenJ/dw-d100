@@ -1,6 +1,6 @@
 const endpoint = process.env.API_ENDPOINT;
 
-export type GeneratedType = {
+type GeneratedType = {
   text: string,
   name?: string
 };

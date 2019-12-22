@@ -33,7 +33,8 @@ router.get('/generate/:type', async (req, res) => {
   const { type } = req.params;
   let { seed } = req.query;
   if (seed && !isNaN(+seed)) {
-    // TODO: If not a number, use this string to generate a number
+    
+    /** @TODO If not a number, use this string to generate a number */
     seed = undefined;
   }
 
