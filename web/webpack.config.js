@@ -1,5 +1,5 @@
 const path = require('path');
-
+const Dotenv = require('dotenv-webpack');
 const ENV = (process.env.NODE_ENV || 'development').toLowerCase();
 
 module.exports = {
@@ -26,10 +26,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts?x$/,
+        test: /\.(ts|tsx|js)/,
         exclude: /(node_modules)/,
         use: ['babel-loader', 'ts-loader', 'eslint-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new Dotenv()
+  ]
 };

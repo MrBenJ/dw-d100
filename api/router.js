@@ -37,7 +37,7 @@ router.get('/generate/:type', async (req, res) => {
     /** @TODO If not a number, use this string to generate a number */
     seed = undefined;
   }
-
+  console.log(`Generating: ${type}`);
   if (!type) {
     res.status(400).send({
       error: ':type parameter invalid.'
@@ -56,9 +56,10 @@ router.get('/generate/:type', async (req, res) => {
   const result = data[
     Math.floor(Math.random() * data.length)
   ];
-  // TODO: Implement Seed
   
-  res.status(200).send(result);
+  // TODO: Implement Seed
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200).json(result);
 
 });
 module.exports = router;

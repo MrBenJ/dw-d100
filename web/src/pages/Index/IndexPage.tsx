@@ -4,7 +4,7 @@ import { RouteComponentProps } from '@reach/router';
 
 interface IndexPageProps extends RouteComponentProps {}
 type PageState = {
-  data: GeneratedType | {},
+  data?: any, // FUCK YOU TYPESCRIPT
   loading: boolean
 };
 
@@ -31,7 +31,6 @@ export default function IndexPage(props: IndexPageProps) {
           : <button onClick={onClick}>Click to generate a random curse</button>
         }
         {state.data && state.data.text || ''}
-
       </div>
     </div>
   );
