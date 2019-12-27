@@ -12,6 +12,15 @@ type PageState = {
   types: string[]
 };
 
+function generateName(string) {
+  const split = string.split('_');
+  const name = split.map(s => {
+    return s[0].toUpperCase() + s.slice(1);
+  });
+
+  return name.join(' ');
+}
+
 const IndexPage: React.FC<IndexPageProps> = () => {
   const [ state, setState ] = useState<PageState>({ 
     loading: false,
@@ -80,7 +89,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
           return (
             <div key={type} className={`flex generator-type generator-type${type}`}>
               <button className="generate-button" onClick={onClick(type)}>
-                {type[0].toUpperCase() + type.slice(1)}
+                {generateName(type)}
               </button>
               
             </div>
