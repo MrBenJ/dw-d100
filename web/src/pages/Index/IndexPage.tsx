@@ -43,6 +43,8 @@ const IndexPage: React.FC<IndexPageProps> = () => {
       height: 100px;
       width: 200px;
       background-color: hsla(275,100%,50%,1);
+      color: white;
+      font-size: 1.6rem;
       transition: all .3s ease;
 
       &:hover {
