@@ -37,6 +37,13 @@ const IndexPage: React.FC<IndexPageProps> = () => {
       justify-content: center;
     }
 
+    .generator {
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
     .generate-button {
       outline: none;
       border: none;
@@ -54,7 +61,7 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     }
   `;
   
-  const onClick = type => () => {
+  const onClick = type => (): void => {
     setState({ ...state, loading: true, data: {} });
     Api.generate(type).then( data => {
       setState({
